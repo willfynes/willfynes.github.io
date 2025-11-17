@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>WillFynes</title>
+  <!-- correct relative path to the css folder -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="homepage">
+  <section class="hero-section" role="img" aria-label="Featured artwork">
+    <!-- Top-right menu -->
+    <div class="side-menu">
+      <button class="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
+      <nav id="menu" class="menu-content" aria-hidden="true">
+        <a href="gallery.html">Gallery</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+
+    <!-- Hero text -->
+    <div class="hero-text">
+      <h1>WillFynes</h1>
+    </div>
+
+    <!-- Footer -->
+    <footer>I am sneered at!</footer>
+  </section>
+
+  <script>
+    // safe menu toggle (wait for DOM)
+    document.addEventListener('DOMContentLoaded', () => {
+      const side = document.querySelector('.side-menu');
+      const btn = document.querySelector('.menu-btn');
+      const menu = document.querySelector('.menu-content');
+
+      btn.addEventListener('click', () => {
+        const open = side.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open);
+        menu.setAttribute('aria-hidden', !open);
+      });
+    });
+  </script>
+</body>
+</html>

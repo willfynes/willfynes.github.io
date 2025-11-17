@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="shoppage">
+
+  <a href="index.html" class="back-btn">Home</a>
+
+  <div class="shop-container" id="shop-container"></div>
+
+  <script>
+    const images = [
+      "saved.PNG",
+      "love.JPG",
+
+      "stanley moves in.png",
+      "incup.JPG",
+
+      "stillpasttense.png",
+      "wunder.png",
+
+      "youdontdeservetowin.JPG",
+      "henry.png",
+
+      "ankle.JPG",
+      "doppelganger.png",
+
+      "hand.JPG",
+      "tree.JPG",
+    
+      "Varmorigin.png",
+      "14(Based).png",
+
+      "footindoor.png",
+      "pastanight.JPG",
+
+      "deco1.png",
+      "futureofdentistry.JPG",
+
+      "manincup.JPG",
+      "gumshoe.JPG",
+
+      "me.JPG",
+      "mothqueen.PNG",
+      
+      "remember.JPG",
+      "sleepinglate.JPG",
+      
+      "somethingtodrink.JPG",
+      "touch art.JPG",
+
+      "torchys.JPG",
+      "wathcingtele.JPG",
+      
+      "almost friday.JPG",
+      "song list.JPG",
+      
+      "beans.JPG"
+
+    ];
+
+    const container = document.getElementById("shop-container");
+
+    images.forEach((img) => {
+      const div = document.createElement("div");
+      div.className = "shop-item";
+
+      const image = document.createElement("img");
+      image.src = `images/${img}`;
+      image.alt = img;
+
+      div.appendChild(image);
+      container.appendChild(div);
+    });
+  </script>
+</body>
+</html>

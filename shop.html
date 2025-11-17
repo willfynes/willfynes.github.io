@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Shop</title>
+<style>
+  /* fonts (keep your real paths) */
+  @font-face { font-family: 'lemonfacelight'; src: url('../fonts/LEMONMILK-LightItalic.otf') format('opentype'); font-weight: 300; font-style: italic; font-display: swap; }
+  @font-face { font-family: 'lemonfacereg'; src: url('../fonts/LEMONMILK-RegularItalic.otf') format('opentype'); font-weight: 400; font-style: italic; font-display: swap; }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+    font-family: 'lemonfacelight', sans-serif;
+    /* keep body flexible — carousel handles its own scrolling */
+  }
+
+  .back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-family: 'lemonfacereg', sans-serif;
+    font-size: 1.2rem;
+    color: #fff;
+    text-decoration: none;
+    background: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    z-index: 50;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  }
+
+  .carousel-wrapper {
+    width: 100%;
+    height: 100vh;            /* center vertically if you like */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;         /* hide native scrollbar area */
+  }
+
+  .carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    padding: 0 10vw;
+  }
+
+  .carousel::-webkit-scrollbar { display: none; } /* hide scrollbar */
+
+  .carousel-item {
+    flex: 0 0 60%;
+    margin: 0 2%;
+    scroll-snap-align: center;
+    transition: transform 0.3s, filter 0.3s;
+    position: relative;
+    display: flex;           /* make it a flex container */
+    flex-direction: column;  /* stack children vertically */
+    align-items: stretch;    /* children take full width by default */
+    text-align: left; 
+  }
+
+  .carousel-item img {
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+  }
+
+  .info-row {
+    display: flex;
+    justify-content: space-between; /* title left, button right */
+    align-items: center;
+    margin-top: 0.5rem;  /* spacing under image */
+  }
+
+  .carousel-item.inactive { transform: scale(0.7); filter: brightness(0.6); }
+  .carousel-item.active   { transform: scale(1);    filter: brightness(1); z-index: 10; }
+
+  .carousel-item .caption {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    color: #fff;
+    text-shadow: 1px 1px 4px #000;
+    text-align: left;        /* left-align title */
+    padding-left: 0.5rem;
+  }
+
+  /* small overrides for Shopify buttons rendered in-page */
+  .shopify-buy__btn, .shopify-buy__btn--primary {
+    font-family: 'lemonfacereg', sans-serif !important;
+    background-color: #000 !important;
+    color: #fff !important;
+    border: none !important;
+    padding: none !important;
+    border-radius: 6px !important;
+    align-self: flex-end;    /* push button to the right */
+    margin-top: 0.5rem;
+  }
+  .shopify-buy__btn:hover {
+    background-color: #fff !important;
+    color: #000 !important;  
+  }
+</style>
+</head>
+<body>
+
+  <a href="index.html" class="back-btn">Home</a>
+
+  <div class="carousel-wrapper">
+    <div class="carousel" id="carousel">
+      <!-- Item 1 -->
+      <div class="carousel-item" id="item-oglice">
+        <img src="images/Oglice_In_Manderland.png" alt="Oglice in Manderland">
+        <div class="info-row">
+          <div class="caption">Oglice in Manderland</div>
+          <div id="product-oglice"></div>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="carousel-item" id="item-stanley">
+        <img src="images/stanley moves in.png" alt="Stanley Moves In">
+        <div class="info-row">
+          <div class="caption">Stanley Moves In</div>
+          <div id="product-stanley"></div>
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="carousel-item" id="item-doppel">
+        <img src="images/doppelganger.png" alt="My Doppelganger">
+        <div class="info-row">
+          <div class="caption">Dopplerganger</div>
+          <div id="product-doppel"></div>
+        </div>
+      </div>
+
+      <div class="carousel-item" id="item-win">
+        <img src="images/You Don't Deserve to Win.png" alt="You Don't Deserve to Win">
+        <div class="info-row">
+          <div class="caption">You Don't Deserve to Win</div>
+          <div id="product-win"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SINGLE script block: loads SDK once, then creates components for each item -->
+  <script>
+  (function () {
+    var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+
+    function loadSDK(cb){
+      if (window.ShopifyBuy && window.ShopifyBuy.UI) return cb();
+      var s = document.createElement('script');
+      s.async = true; s.src = scriptURL;
+      s.onload = cb;
+      document.head.appendChild(s);
+    }
+
+    loadSDK(function ShopifyBuyInit(){
+      var client = ShopifyBuy.buildClient({
+        domain: '4t00zt-sd.myshopify.com',
+        storefrontAccessToken: 'a4126c3d41ca96b0b622a557a01cfec1'
+      });
+
+      ShopifyBuy.UI.onReady(client).then(function (ui) {
+        const products = [
+          { nodeId: 'product-oglice', productId: '14819066380654' },        // YOU ALREADY HAVE THIS ID
+          { nodeId: 'product-stanley', productId: '14819068805486' },
+          { nodeId: 'product-win', productId: '14820092182894' },     // replace with product ID 2
+          { nodeId: 'product-doppel', productId: '14819072573806' }      // replace with product ID 3
+        ];
+
+        products.forEach(p => {
+          // skip placeholders
+          if (!p.productId || p.productId.startsWith('REPLACE')) return;
+          ui.createComponent('product', {
+            id: p.productId,
+            node: document.getElementById(p.nodeId),
+            options: {
+              product: {
+                iframe: false,
+                contents: {
+                  img: false,
+                  title: false,
+                  price: false,
+                },
+                text: { button: 'Get!' },
+                styles: {
+                  button: {
+                    "font-family": "lemonfacereg, sans-serif",
+                    "background-color": "#000",
+                    "color": "#fff",
+                    "border": "2px solid #fff",
+                    "border-radius": "6px",
+                    "padding": "0.6rem 1.2rem"
+                  }
+                }
+              },
+              cart: {
+                text: { button: "Checkout" },
+                styles: {
+                  button: {
+                    "font-family": "lemonfacereg, sans-serif",
+                    "background-color": "#000",
+                    "color": "#fff"
+                  }
+                }
+              }
+            }
+          });
+        }); 
+     });
+  });
+})();
+  </script>
+
+  <!-- your existing carousel center-detection script (unchanged) -->
+  <script>
+    const carousel = document.getElementById('carousel');
+    const items = document.querySelectorAll('.carousel-item');
+
+    function updateActive() {
+      const carouselRect = carousel.getBoundingClientRect();
+      const carouselCenter = carouselRect.left + carouselRect.width / 2;
+
+      items.forEach(item => {
+        const itemRect = item.getBoundingClientRect();
+        const itemCenter = itemRect.left + itemRect.width / 2;
+        const distance = Math.abs(carouselCenter - itemCenter);
+        if (distance < itemRect.width / 2) {
+          item.classList.add('active');
+          item.classList.remove('inactive');
+        } else {
+          item.classList.remove('active');
+          item.classList.add('inactive');
+        }
+      });
+    }
+
+    carousel.addEventListener('scroll', () => requestAnimationFrame(updateActive));
+    updateActive();
+  </script>
+
+</body>
+</html>
