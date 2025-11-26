@@ -109,12 +109,12 @@ footer {
 .menu-btn {
   font-family: 'lemonfacereg', sans-serif;
   font-size: 2rem;
-  color: #fff;
+  color: #000;
   background: none;
   border: none;
   outline: none;
   cursor: pointer;
-  -webkit-text-stroke: 1px #000;
+  -webkit-text-stroke: 1px #fff;
 }
 
 .menu-content {
