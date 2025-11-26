@@ -228,4 +228,9 @@ body.shoppage {
   transform: scale(1.02);
 }
 
+@supports (-webkit-touch-callout: none) {
+  body {
+    -webkit-text-size-adjust: 100%;
+  }
+}
 
