@@ -13,69 +13,65 @@
   <div class="shop-container" id="shop-container"></div>
 
   <script>
-    const images = [
-      "saved.PNG",
-      "love.JPG",
+  const images = [
+    "You Don't Deserve to Win.png",
+    "tree.JPG",
+    "somethingtodrink.JPG",
+    "footindoor.png",
+    "ogliceinmanderland.JPG",
+    "love.JPG",
+    "ankle.JPG",
+    "futureofdentistry.JPG",
+    "gumshoe.JPG",
+    "doppelganger.png",
+    "saved.PNG",
+    "hand.JPG",
+    "excite.jpeg",
+    "beak.jpeg",
+    "sunshine.jpeg",
+    "eyepull.jpeg",
+    "gardening.jpeg",
+    "pastanight.JPG",
+    "incup.JPG",
+    "stillpasttense.png",
+    "torchys.JPG",
+    "wathcingtele.JPG",
+    "almost friday.JPG",
+    "song list.JPG",
+    "remember.JPG",
+    "sleepinglate.JPG",
+    "stanley moves in.png",
+    "henry.png",
+    "Varmorigin.png",
+    "14(based).png",
+    "touch art.JPG",
+    "wunder.png",
+    "me.JPG",
+    "manincup.JPG",
+  ];
 
-      "stanley moves in.png",
-      "incup.JPG",
+  const container = document.getElementById("shop-container");
 
-      "stillpasttense.png",
-      "wunder.png",
+  const masonry = document.createElement("div");
+  masonry.className = "masonry";
 
-      "youdontdeservetowin.JPG",
-      "henry.png",
+  images.forEach(imgName => {
+    const item = document.createElement("div");
+    item.className = "shop-item";
 
-      "ankle.JPG",
-      "doppelganger.png",
+    const image = document.createElement("img");
+    image.src = `images/${imgName}`;
+    image.alt = imgName;
+    image.loading = "lazy";
 
-      "hand.JPG",
-      "tree.JPG",
-    
-      "Varmorigin.png",
-      "14(based).png",
+    item.appendChild(image);
+    masonry.appendChild(item);
+  });
 
-      "footindoor.png",
-      "pastanight.JPG",
+  container.appendChild(masonry);
+</script>
 
-      "deco1.png",
-      "futureofdentistry.JPG",
 
-      "manincup.JPG",
-      "gumshoe.JPG",
-
-      "me.JPG",
-      "mothqueen.PNG",
-      
-      "remember.JPG",
-      "sleepinglate.JPG",
-      
-      "somethingtodrink.JPG",
-      "touch art.JPG",
-
-      "torchys.JPG",
-      "wathcingtele.JPG",
-      
-      "almost friday.JPG",
-      "song list.JPG",
-      
-      "beans.JPG"
-
-    ];
-
-    const container = document.getElementById("shop-container");
-
-    images.forEach((img) => {
-      const div = document.createElement("div");
-      div.className = "shop-item";
-
-      const image = document.createElement("img");
-      image.src = `images/${img}`;
-      image.alt = img;
-
-      div.appendChild(image);
-      container.appendChild(div);
-    });
-  </script>
 </body>
 </html>
+
