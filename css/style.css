@@ -7,8 +7,7 @@ html, body { height: 100%; width: 100%; }
 @font-face {
   font-family: 'lemonface';
   src: url('/fonts/LEMONMILK-BoldItalic.woff2') format('woff2'),
-       url('/fonts/LEMONMILK-BoldItalic.woff') format('woff'),
-       url('/fonts/LEMONMILK-BoldItalic.otf') format('opentype');
+       url('/fonts/LEMONMILK-BoldItalic.woff') format('woff');
   font-weight: 700;
   font-style: italic;
   font-display: swap;
@@ -17,8 +16,7 @@ html, body { height: 100%; width: 100%; }
 @font-face {
   font-family: 'lemonfacereg';
   src: url('/fonts/LEMONMILK-RegularItalic.woff2') format('woff2'),
-       url('/fonts/LEMONMILK-RegularItalic.woff') format('woff'),
-       url('/fonts/LEMONMILK-RegularItalic.otf') format('opentype');
+       url('/fonts/LEMONMILK-RegularItalic.woff') format('woff');
   font-weight: 400;
   font-style: italic;
   font-display: swap;
@@ -27,8 +25,7 @@ html, body { height: 100%; width: 100%; }
 @font-face {
   font-family: 'lemonfacelight';
   src: url('/fonts/LEMONMILK-LightItalic.woff2') format('woff2'),
-       url('/fonts/LEMONMILK-LightItalic.woff') format('woff'),
-       url('/fonts/LEMONMILK-LightItalic.otf') format('opentype');
+       url('/fonts/LEMONMILK-LightItalic.woff') format('woff');
   font-weight: 300;
   font-style: italic;
   font-display: swap;
