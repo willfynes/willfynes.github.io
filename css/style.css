@@ -198,6 +198,18 @@ body.shoppage {
   transform: scale(1.02);
 }
 
+/* Force Lemon Milk on Shopify Buy Button */
+.shopify-buy__btn,
+.shopify-buy__btn--primary,
+.shopify-buy__product__title,
+.shopify-buy__product__price,
+.shopify-buy__cart-toggle,
+.shopify-buy__cart {
+  font-family: 'lemonfacereg', sans-serif !important;
+  font-style: italic !important;
+}
+
+
 @supports (-webkit-touch-callout: none) {
   body {
     -webkit-text-size-adjust: 100%;
