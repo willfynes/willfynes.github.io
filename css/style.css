@@ -1,13 +1,19 @@
 
-/* Reset & box-sizing */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { height: 100%; width: 100%; }
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-/* Load custom fonts */
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
 @font-face {
   font-family: 'lemonface';
-  src: url('/fonts/LEMONMILK-BoldItalic.woff2') format('woff2'),
-       url('/fonts/LEMONMILK-BoldItalic.woff') format('woff');
+  src:
+    url('/fonts/LEMONMILK-BoldItalic.woff2') format('woff2'),
+    url('/fonts/LEMONMILK-BoldItalic.otf') format('opentype');
   font-weight: 700;
   font-style: italic;
   font-display: swap;
@@ -15,8 +21,9 @@ html, body { height: 100%; width: 100%; }
 
 @font-face {
   font-family: 'lemonfacereg';
-  src: url('/fonts/LEMONMILK-RegularItalic.woff2') format('woff2'),
-       url('/fonts/LEMONMILK-RegularItalic.woff') format('woff');
+  src:
+    url('/fonts/LEMONMILK-RegularItalic.woff2') format('woff2'),
+    url('/fonts/LEMONMILK-RegularItalic.otf') format('opentype');
   font-weight: 400;
   font-style: italic;
   font-display: swap;
@@ -24,29 +31,27 @@ html, body { height: 100%; width: 100%; }
 
 @font-face {
   font-family: 'lemonfacelight';
-  src: url('/fonts/LEMONMILK-LightItalic.woff2') format('woff2'),
-       url('/fonts/LEMONMILK-LightItalic.woff') format('woff');
+  src:
+    url('/fonts/LEMONMILK-LightItalic.woff2') format('woff2'),
+    url('/fonts/LEMONMILK-LightItalic.otf') format('opentype');
   font-weight: 300;
   font-style: italic;
   font-display: swap;
 }
 
-
-/* Global styles */
 body {
   font-family: 'lemonfacelight', sans-serif;
+  font-style: italic;
   background-color: #000;
   color: #fff;
-  overflow: auto; /* remove on scrollable pages like shop.html */
+  overflow: auto;
 }
 
-p { 
+p {
   font-family: 'lemonfacelight', sans-serif;
-  font-style: 'italic';
   font-size: x-small;
 }
 
-/* Centered About text */
 .about-text {
   font-family: 'lemonface', sans-serif;
   display: flex;
@@ -54,7 +59,6 @@ p {
   align-items: center;
   text-align: center;
   font-size: 0.5rem;
-  font-style: 'italic';
   width: 100%;
   height: 100vh;
   position: relative;
@@ -62,12 +66,10 @@ p {
 
 .about-subtext {
   font-family: 'lemonfacelight', sans-serif;
-  font-style: 'italic';
   font-size: 0.3rem;
   text-align: center;
 }
 
-/* Hero section */
 .hero-section {
   position: relative;
   width: 100%;
@@ -75,20 +77,17 @@ p {
   background: url('../images/ogliceinmanderland.JPG') center center / cover no-repeat;
 }
 
-/* Hero text */
 .hero-text {
   position: absolute;
   left: 48px;
   bottom: 48px;
   font-family: 'lemonface', sans-serif;
-  font-style: 'italic';
   font-size: clamp(2rem, 6vw, 5rem);
   color: #fff;
   -webkit-text-stroke: 4.2px #000;
   z-index: 10;
 }
 
-/* Footer */
 footer {
   position: fixed;
   bottom: 12px;
@@ -100,7 +99,6 @@ footer {
   -webkit-text-stroke: 0.5px #000;
 }
 
-/* Top-right menu */
 .side-menu {
   position: fixed;
   top: 20px;
@@ -110,12 +108,10 @@ footer {
 
 .menu-btn {
   font-family: 'lemonfacereg', sans-serif;
-  font-style: 'italic';
   font-size: 2rem;
   color: #000;
   background: none;
   border: none;
-  outline: none;
   cursor: pointer;
   -webkit-text-stroke: 1px #fff;
 }
@@ -124,75 +120,49 @@ footer {
   display: none;
   flex-direction: column;
   margin-top: 0.5rem;
-  background: rgb(0, 0, 0);
+  background: #000;
   border-radius: 6px;
   overflow: hidden;
   font-family: 'lemonfacelight', sans-serif;
-  font-style: 'italic';
-  -webkit-text-stroke: 1px #ffffff;
+  -webkit-text-stroke: 1px #fff;
 }
 
-.side-menu.open .menu-content { display: flex; }
+.side-menu.open .menu-content {
+  display: flex;
+}
 
 .menu-content a {
   padding: 0.6rem 0.9rem;
   text-decoration: none;
   color: #111;
-  display: block;
 }
 
-.menu-content a:hover { background: #eee; }
+.menu-content a:hover {
+  background: #eee;
+}
 
-/* Back button */
+
 .back-btn {
   position: fixed;
   top: 20px;
   left: 20px;
   font-family: 'lemonfacereg', sans-serif;
-  font-style: 'italic';
   font-size: 1.2rem;
   color: #fff;
   text-decoration: none;
-  background: none;
   padding: 0.5rem 1rem;
-  border-radius: 6px;
   z-index: 50;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-  transition: background 0.3s ease;
+  text-shadow:
+    -1px -1px 0 #000,
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;
 }
 
-.back-btn:hover { background: none; }
-
-/* Shop page layout */
-.shop-container {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
-.shop-item {
-  flex: 1 0 50%;
-}
-
-.shop-item img {
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: transform 0.3s ease;
-}
-
-.caption {
-  text-align: center;
-  margin-top: 10px;
-  font-size: 1.2rem;
-}
-
-/* Shop page layout */
 body.shoppage {
   overflow-y: auto;
 }
 
-/* GALLERY — Masonry Layout */
 .shop-container {
   width: 100%;
   padding: 80px 12px 40px;
@@ -204,26 +174,20 @@ body.shoppage {
 }
 
 @media (min-width: 768px) {
-  .masonry {
-    column-count: 3;
-  }
+  .masonry { column-count: 3; }
 }
 
 @media (min-width: 1200px) {
-  .masonry {
-    column-count: 4;
-  }
+  .masonry { column-count: 4; }
 }
 
 .shop-item {
   break-inside: avoid;
-  -webkit-column-break-inside: avoid;
   margin-bottom: 12px;
 }
 
 .shop-item img {
   width: 100%;
-  height: auto;
   display: block;
   border-radius: 4px;
   transition: transform 0.2s ease;
