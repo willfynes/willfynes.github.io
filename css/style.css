@@ -209,6 +209,15 @@ body.shoppage {
   transform: scale(1.02);
 }
 
+.responsive-img {
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+
 /* Force Lemon Milk on Shopify Buy Button */
 .shopify-buy__btn,
 .shopify-buy__btn--primary,
