@@ -229,6 +229,39 @@ body.shoppage {
   font-style: italic !important;
 }
 
+.ticker {
+  position: fixed;          /* or absolute / relative if you prefer */
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  background: black;        /* optional */
+  padding: 10px 0;
+  z-index: 999;
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: scroll-left 20s linear infinite;
+}
+
+.ticker span {
+  white-space: nowrap;
+  font-family: 'lemonface', sans-serif;
+  font-size: 1rem;
+  padding-right: 2rem;
+  color: white;
+}
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 
 @supports (-webkit-touch-callout: none) {
   body {
