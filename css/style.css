@@ -59,6 +59,8 @@ p {
   max-width: 800px;
   margin: 0 auto;
   padding: 120px 16px 80px;
+  display: block !important;
+  height: auto !important;
 }
 
 
