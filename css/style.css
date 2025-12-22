@@ -47,14 +47,6 @@ body {
   overflow: auto;
 }
 
-h1 {
-  font-family: 'lemonfacelight', sans-serif;
-  font-style: italic;
-  background-color: #000;
-  color: #fff;
-  overflow: visible;
-}
-
 p {
   font-family: 'lemonfacelight', sans-serif;
   font-size: x-small;
