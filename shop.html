@@ -253,17 +253,23 @@
     updateActive();
   </script>
 
-  <script>
+<script>
   const carousel = document.getElementById('carousel');
 
-  carousel.addEventListener('wheel', (e) => {
-    // Only hijack wheel if horizontal scroll is possible
+  function isMouseOverCarousel(e) {
+    return carousel.contains(e.target);
+  }
+
+  window.addEventListener('wheel', (e) => {
+    if (!isMouseOverCarousel(e)) return;
+
     if (carousel.scrollWidth > carousel.clientWidth) {
       e.preventDefault();
       carousel.scrollLeft += e.deltaY;
     }
   }, { passive: false });
 </script>
+
 
 
 </body>
