@@ -253,6 +253,16 @@ body.shoppage {
   color: white;
 }
 
+.ig-link {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.ig-link:hover {
+  text-decoration: underline; /* optional */
+}
+
 @keyframes scroll-left {
   from {
     transform: translateX(0);
