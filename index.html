@@ -1,18 +1,74 @@
-<!DOCTYPE html>
+<!doctype html>
+ 
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>something incredible and fortuitous has occurred</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-<body id = "home">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>WillFynes</title>
+  <!-- correct relative path to the css folder -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preload" href="/fonts/LEMONMILK-RegularItalic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/fonts/LEMONMILK-BoldItalic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/fonts/LEMONMILK-LightItalic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/css/style.css" as="style">
+</head>
+<body class="homepage">
+  <section class="hero-section" role="img" aria-label="Featured artwork">
+    <!-- Top-right menu -->
+    <div class="side-menu">
+      <button class="menu-btn" aria-expanded="false" aria-controls="menu">Decisions</button>
+      <nav id="menu" class="menu-content" aria-hidden="true">
+        <a href="shop.html">New World</a>
+        <a href="about.html">Histories</a>
+        <a href="stubble.html">Stubble</a>
+        <a href="gallery.html">Mess</a>
+        <a href="contact.html">Call Me!</a>
+      </nav>
+    </div>
 
-    <nav>
-        <ul>
-            <li><a href="writing.html">now!</a></li>
-            <li><a href="love.html">quick!</a></li>
-        </ul>
-    </nav>
+    <!-- Hero text -->
+    <div class="hero-marquee">
+     <div class="hero-marquee-track">
+       <div class="hero-marquee-group">
+         <span>WillFynes</span>
+         <span>WillFynes</span>
+         <span>WillFynes</span>
+         <span>WillFynes</span>
+       </div>
 
+    <div class="hero-marquee-group" aria-hidden="true">
+          <span>WillFynes</span>
+          <span>WillFynes</span>
+          <span>WillFynes</span>
+          <span>WillFynes</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ticker">
+     <div class="ticker-track">
+      <span>if you could perform one miracle to save the world forever, would you do it and what would it be?</span>
+      <span>if you could perform one miracle to save the world forever, would you do it and what would it be?</span>
+      <span>if you could perform one miracle to save the world forever, would you do it and what would it be?</span>
+      <span>if you could perform one miracle to save the world forever, would you do it and what would it be?</span>
+     </div>
+    </div>
+  </section>
+ 
+
+  <script>
+    // safe menu toggle (wait for DOM)
+    document.addEventListener('DOMContentLoaded', () => {
+      const side = document.querySelector('.side-menu');
+      const btn = document.querySelector('.menu-btn');
+      const menu = document.querySelector('.menu-content');
+
+      btn.addEventListener('click', () => {
+        const open = side.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open);
+        menu.setAttribute('aria-hidden', !open);
+      });
+    });
+  </script>
 </body>
+</html>
