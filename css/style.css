@@ -1,4 +1,4 @@
-
+* }
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -242,30 +242,33 @@ body.shoppage {
 
 .hero-marquee-track {
   display: flex;
-  width: fit-content;
-  min-width: max-content;
-  animation: hero-marquee-scroll 18s linear infinite;
+  width: max-content;
+  animation: hero-marquee-scroll 14s linear infinite;
   will-change: transform;
 }
 
-.hero-marquee-track span {
+.hero-marquee-group {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.hero-marquee-group span {
   flex: 0 0 auto;
-  display: inline-block;
   padding-right: 6rem;
   font-family: 'lemonface', sans-serif;
   font-size: clamp(4rem, 14vw, 12rem);
   color: white;
   line-height: 1;
   white-space: nowrap;
+  -webkit-text-stroke: 4px #000;
 }
 
 @keyframes hero-marquee-scroll {
-  0% {
-    transform: translate3d(0, 0, 0);
+  from {
+    transform: translateX(0);
   }
-
-  100% {
-    transform: translate3d(-50%, 0, 0);
+  to {
+    transform: translateX(-50%);
   }
 }
 
