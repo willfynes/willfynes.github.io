@@ -230,27 +230,34 @@ body.shoppage {
 }
 
 .ticker {
-  position: fixed;          /* or absolute / relative if you prefer */
+  position: absolute;
   bottom: 0;
   width: 100%;
   overflow: hidden;
-  background: black;        /* optional */
-  padding: 10px 0;
-  z-index: 999;
+  background: rgba(0,0,0,0.7);
+  white-space: nowrap;
 }
 
 .ticker-track {
   display: flex;
   width: max-content;
-  animation: scroll-left 20s linear infinite;
+  animation: ticker-scroll 20s linear infinite;
 }
 
-.ticker span {
-  white-space: nowrap;
-  font-family: 'lemonface', sans-serif;
-  font-size: 1rem;
-  padding-right: 2rem;
+.ticker-track span {
+  flex-shrink: 0;
+  padding-right: 4rem;
   color: white;
+  font-size: 1rem;
+}
+
+@keyframes ticker-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .ig-link {
