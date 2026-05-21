@@ -123,7 +123,6 @@
         <img src="images/ogliceinmanderland.JPG" alt="Oglice in Manderland">
         <div class="info-row">
           <div class="caption">Oglice in Manderland</div>
-          <div id="product-oglice"></div>
         </div>
       </div>
 
@@ -132,16 +131,6 @@
         <img src="images/stanley moves in.png" alt="Stanley Moves In">
         <div class="info-row">
           <div class="caption">Stanley Moves In</div>
-          <div id="product-stanley"></div>
-        </div>
-      </div>
-
-      <!-- Item 3 -->
-      <div class="carousel-item" id="item-doppel">
-        <img src="images/doppelganger.png" alt="My Doppelganger">
-        <div class="info-row">
-          <div class="caption">Dopplerganger</div>
-          <div id="product-doppel"></div>
         </div>
       </div>
 
@@ -149,82 +138,12 @@
         <img src="images/You Don't Deserve to Win.png" alt="You Don't Deserve to Win">
         <div class="info-row">
           <div class="caption">You Don't Deserve to Win</div>
-          <div id="product-win"></div>
         </div>
       </div>
     </div>
   </div>
 
   <!-- SINGLE script block: loads SDK once, then creates components for each item -->
-  <script>
-  (function () {
-    var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-
-    function loadSDK(cb){
-      if (window.ShopifyBuy && window.ShopifyBuy.UI) return cb();
-      var s = document.createElement('script');
-      s.async = true; s.src = scriptURL;
-      s.onload = cb;
-      document.head.appendChild(s);
-    }
-
-    loadSDK(function ShopifyBuyInit(){
-      var client = ShopifyBuy.buildClient({
-        domain: '4t00zt-sd.myshopify.com',
-        storefrontAccessToken: 'a4126c3d41ca96b0b622a557a01cfec1'
-      });
-
-      ShopifyBuy.UI.onReady(client).then(function (ui) {
-        const products = [
-          { nodeId: 'product-oglice', productId: '14819066380654' },        // YOU ALREADY HAVE THIS ID
-          { nodeId: 'product-stanley', productId: '14819068805486' },
-          { nodeId: 'product-win', productId: '14820092182894' },     // replace with product ID 2
-          { nodeId: 'product-doppel', productId: '14819072573806' }      // replace with product ID 3
-        ];
-
-        products.forEach(p => {
-          // skip placeholders
-          if (!p.productId || p.productId.startsWith('REPLACE')) return;
-          ui.createComponent('product', {
-            id: p.productId,
-            node: document.getElementById(p.nodeId),
-            options: {
-              product: {
-                iframe: false,
-                contents: {
-                  img: false,
-                  title: false,
-                  price: false,
-                },
-                text: { button: 'Get!' },
-                styles: {
-                  button: {
-                    "font-family": "lemonfacereg, sans-serif",
-                    "background-color": "#000",
-                    "color": "#fff",
-                    "border": "2px solid #fff",
-                    "border-radius": "6px",
-                    "padding": "0.6rem 1.2rem"
-                  }
-                }
-              },
-              cart: {
-                text: { button: "Checkout" },
-                styles: {
-                  button: {
-                    "font-family": "lemonfacereg, sans-serif",
-                    "background-color": "#000",
-                    "color": "#fff"
-                  }
-                }
-              }
-            }
-          });
-        }); 
-     });
-  });
-})();
-  </script>
 
   <!-- your existing carousel center-detection script (unchanged) -->
   <script>
