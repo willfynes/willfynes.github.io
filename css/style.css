@@ -160,7 +160,6 @@ footer {
   color: #000;
   background: none;
   border: none;
-  cursor: pointer;
   -webkit-text-stroke: 1px #fff;
 }
 
@@ -345,7 +344,6 @@ body.shoppage {
 .ig-link {
   color: #fff;
   text-decoration: none;
-  cursor: pointer;
 }
 
 @keyframes scroll-left {
