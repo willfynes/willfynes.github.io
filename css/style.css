@@ -39,6 +39,10 @@ html, body {
   font-display: swap;
 }
 
+* {
+  cursor: url('../images/cursor.png') 24 24, auto !important;
+}
+
 body {
   font-family: 'lemonfacelight', sans-serif;
   font-style: italic;
