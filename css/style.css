@@ -242,12 +242,15 @@ body.shoppage {
 
 .hero-marquee-track {
   display: flex;
-  width: max-content;
-  animation: hero-scroll 30s linear infinite;
+  width: fit-content;
+  min-width: max-content;
+  animation: hero-marquee-scroll 18s linear infinite;
+  will-change: transform;
 }
 
 .hero-marquee-track span {
-  flex-shrink: 0;
+  flex: 0 0 auto;
+  display: inline-block;
   padding-right: 6rem;
   font-family: 'lemonface', sans-serif;
   font-size: clamp(4rem, 14vw, 12rem);
@@ -256,19 +259,13 @@ body.shoppage {
   white-space: nowrap;
 }
 
-  text-shadow:
-    -2px -2px 0 #000,
-     2px -2px 0 #000,
-    -2px  2px 0 #000,
-     2px  2px 0 #000;
-}
-
-@keyframes hero-scroll {
-  from {
-    transform: translateX(0);
+@keyframes hero-marquee-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
   }
-  to {
-    transform: translateX(-50%);
+
+  100% {
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
