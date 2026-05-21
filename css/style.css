@@ -237,6 +237,7 @@ body.shoppage {
   overflow: hidden;
   transform: translateY(-50%);
   pointer-events: none;
+  z-index: 10;
 }
 
 .hero-marquee-track {
@@ -248,12 +249,12 @@ body.shoppage {
 .hero-marquee-track span {
   flex-shrink: 0;
   padding-right: 6rem;
-
-  font-family: 'lemonfacebold', sans-serif;
+  font-family: 'lemonface', sans-serif;
   font-size: clamp(4rem, 14vw, 12rem);
   color: white;
   line-height: 1;
   white-space: nowrap;
+}
 
   text-shadow:
     -2px -2px 0 #000,
