@@ -9,6 +9,20 @@ html, body {
   width: 100%;
 }
 
+.image-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 3rem auto;
+  max-width: 900px;
+}
+
+.image-row img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 @font-face {
   font-family: 'lemonface';
   src:
