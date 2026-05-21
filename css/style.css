@@ -211,6 +211,23 @@ footer {
      1px  1px 0 #000;
 }
 
+.back-btn2 {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-family: 'lemonfacereg', sans-serif;
+  font-size: 1.2rem;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  z-index: 50;
+  text-shadow:
+    -1px -1px 0 #000,
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;
+}
+
 body.shoppage {
   overflow-y: auto;
 }
